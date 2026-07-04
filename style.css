@@ -123,3 +123,12 @@ button{
     font-size: 10px;
     line-height: 1.2;
 }
+
+@media (max-width: 600px){
+
+    .cell b{
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+
+}

@@ -178,14 +178,3 @@ function checkBingo(){
     }
 
 }
-
-cell.onclick = () => {
-
-    clickSound.currentTime = 0;
-    clickSound.play();
-
-    cell.classList.toggle("checked");
-
-    checkBingo();
-
-};

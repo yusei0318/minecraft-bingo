@@ -68,13 +68,6 @@ button{
     background: #666;
 }
 
-/* チェック済み */
-.checked{
-    background: limegreen;
-    color: black;
-    font-weight: bold;
-}
-
 /* FREEマス */
 .free{
 
@@ -174,18 +167,18 @@ button{
 
 .bingo-line{
     animation: lineGlow 0.8s ease-in-out infinite;
-    background: gold !important;
-    color: black !important;
+    background: #1e7e34 !important;   /* 濃い緑 */
+    color: white !important;
 }
 
 @keyframes lineGlow{
     0%{
-        box-shadow: 0 0 5px gold;
+        box-shadow: 0 0 5px #4CAF50;
     }
     50%{
-        box-shadow: 0 0 20px gold;
+        box-shadow: 0 0 20px #4CAF50;
     }
     100%{
-        box-shadow: 0 0 5px gold;
+        box-shadow: 0 0 5px #4CAF50;
     }
 }

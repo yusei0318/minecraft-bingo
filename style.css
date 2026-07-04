@@ -108,3 +108,18 @@ button{
         padding: 10px;
     }
 }
+
+.cell div{
+    text-align: center;
+}
+
+.cell b{
+    display: block;
+    font-size: 14px;
+    margin-bottom: 4px;  /* ←数字とミッションの間 */
+}
+
+.cell div div{
+    font-size: 10px;
+    line-height: 1.2;
+}

@@ -54,7 +54,7 @@ const missions={
 
 };
 
-console.log("update test");
+//console.log("update test");
 
 const bingo=document.getElementById("bingo");
 

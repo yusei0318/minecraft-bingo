@@ -57,7 +57,7 @@ console.log("update test");
 
 const bingo=document.getElementById("bingo");
 
-const clickSound = new Audio("./click.mp3");
+const clickSound = new Audio("/minecraft-bingo/click.mp3");
 
 document.getElementById("generate").onclick=createCard;
 

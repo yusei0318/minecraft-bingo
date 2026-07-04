@@ -53,6 +53,8 @@ const missions={
 
 };
 
+console.log("update test");
+
 const bingo=document.getElementById("bingo");
 
 const clickSound = new Audio("click.mp3");

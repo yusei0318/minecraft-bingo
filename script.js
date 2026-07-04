@@ -13,7 +13,7 @@ const missions={
 11:"オオカミを仲間にする",
 12:"ネコを仲間にする",
 13:"馬に乗る",
-14:"魚を釣る",
+14:"鮭を釣る",
 15:"パン作成",
 16:"ケーキ作成",
 17:"ベッドで寝る",
@@ -24,8 +24,8 @@ const missions={
 22:"TNT爆発",
 23:"クロスボウ作成",
 24:"盾作成",
-25:"ダイヤ装備",
-26:"ネザライト装備",
+25:"ダイヤ入手",
+26:"古代の残骸入手",
 27:"エンダードラゴン討伐",
 28:"ウィザー召喚",
 29:"村人と取引",
@@ -41,15 +41,16 @@ const missions={
 39:"スニッファー発見",
 40:"ラクダに乗る",
 41:"腕立て10回",
-42:"水を飲む",
-43:"テキーラショット",
+42:"水入り瓶を飲む",
+43:"ハッピーガストに乗る",
 44:"アレイを仲間にする",
 45:"クリーパー！と叫ぶ",
 46:"不死のトーテムを入手",
 47:"クマノミを釣る",
 48:"エンチャント系を釣る",
 49:"スポンジ入手",
-50:"モブのモノマネ"
+50:"モブのモノマネ",
+51:"レコード入手"
 
 };
 
@@ -59,9 +60,13 @@ const bingo=document.getElementById("bingo");
 
 const clickSound = new Audio("./click.mp3");
 
+let bingoCount = 0;
+
 document.getElementById("generate").onclick=createCard;
 
 function createCard(){
+
+    bingoCount = 0;
 
     bingo.innerHTML = "";
 
@@ -168,13 +173,14 @@ function checkBingo(){
 
     });
 
-    // ビンゴ通知
-    if(bingoLines.length > 0){
+    // 新しくビンゴが増えた時だけ通知
+if (bingoLines.length > bingoCount) {
 
-        setTimeout(() => {
-            alert("🎉 ビンゴ達成！！");
-        }, 200);
+    bingoCount = bingoLines.length;
 
-    }
+    setTimeout(() => {
+        alert(`🎉 ${bingoCount}ビンゴ達成！！`);
+    }, 200);
 
+}
 }

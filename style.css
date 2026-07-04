@@ -64,7 +64,7 @@ button{
 }
 
 /* ホバー（PC用） */
-.cell:hover{
+.cell:not(.checked):hover{
     background: #666;
 }
 
@@ -138,10 +138,9 @@ button{
 
 /* チェックされた時のアニメーション */
 .checked{
-    background: limegreen;
+    background: limegreen !important;
     color: black;
     font-weight: bold;
-
     animation: pop 0.2s ease;
 }
 

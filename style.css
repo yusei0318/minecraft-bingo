@@ -132,3 +132,42 @@ button{
     }
 
 }
+
+
+.cell{
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
+}
+
+/* クリックした瞬間の演出 */
+.cell:active{
+    transform: scale(0.92);
+}
+
+/* チェックされた時のアニメーション */
+.checked{
+    background: limegreen;
+    color: black;
+    font-weight: bold;
+
+    animation: pop 0.2s ease;
+}
+
+/* ポップアニメーション */
+@keyframes pop{
+
+    0%{
+        transform: scale(0.8);
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+
+    50%{
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(0,255,0,0.6);
+    }
+
+    100%{
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+
+}

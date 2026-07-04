@@ -171,3 +171,21 @@ button{
     }
 
 }
+
+.bingo-line{
+    animation: lineGlow 0.8s ease-in-out infinite;
+    background: gold !important;
+    color: black !important;
+}
+
+@keyframes lineGlow{
+    0%{
+        box-shadow: 0 0 5px gold;
+    }
+    50%{
+        box-shadow: 0 0 20px gold;
+    }
+    100%{
+        box-shadow: 0 0 5px gold;
+    }
+}

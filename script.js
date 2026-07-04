@@ -55,6 +55,8 @@ const missions={
 
 const bingo=document.getElementById("bingo");
 
+const clickSound = new Audio("click.mp3");
+
 document.getElementById("generate").onclick=createCard;
 
 function createCard(){
@@ -122,50 +124,66 @@ function checkBingo(){
 
     const c = i => cells[i].classList.contains("checked");
 
-    let bingoCount = 0;
+    let bingoLines = [];
 
-    // 横チェック
+    // 横
     for(let y = 0; y < 5; y++){
 
-        let ok = true;
+        let line = [];
 
         for(let x = 0; x < 5; x++){
-
-            if(!c(y * 5 + x)) ok = false;
-
+            line.push(y * 5 + x);
         }
 
-        if(ok) bingoCount++;
-
+        if(line.every(c)) bingoLines.push(line);
     }
 
-    // 縦チェック
+    // 縦
     for(let x = 0; x < 5; x++){
 
-        let ok = true;
+        let line = [];
 
         for(let y = 0; y < 5; y++){
-
-            if(!c(y * 5 + x)) ok = false;
-
+            line.push(y * 5 + x);
         }
 
-        if(ok) bingoCount++;
-
+        if(line.every(c)) bingoLines.push(line);
     }
 
-    // 斜め（左上→右下）
-    if([0,6,12,18,24].every(c)) bingoCount++;
+    // 斜め
+    const diag1 = [0,6,12,18,24];
+    const diag2 = [4,8,12,16,20];
 
-    // 斜め（右上→左下）
-    if([4,8,12,16,20].every(c)) bingoCount++;
+    if(diag1.every(c)) bingoLines.push(diag1);
+    if(diag2.every(c)) bingoLines.push(diag2);
 
-    if(bingoCount > 0){
+    // ラインを光らせる
+    bingoLines.forEach(line => {
+
+        line.forEach(i => {
+            cells[i].classList.add("bingo-line");
+        });
+
+    });
+
+    // ビンゴ通知
+    if(bingoLines.length > 0){
 
         setTimeout(() => {
             alert("🎉 ビンゴ達成！！");
-        }, 100);
+        }, 200);
 
     }
 
 }
+
+cell.onclick = () => {
+
+    clickSound.currentTime = 0;
+    clickSound.play();
+
+    cell.classList.toggle("checked");
+
+    checkBingo();
+
+};
